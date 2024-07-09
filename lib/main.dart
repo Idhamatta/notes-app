@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/pages/home_page.dart';
+import 'package:notes_app/util/todo_tile.dart';
 
-void main(List<String> args) {}
+void main(List<String> args) {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,14 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.amber,
-        appBar: AppBar(
-          title: Text('Rodrik Notes'),
-          centerTitle: true,
-        ),
-        body: Container(),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
     );
   }
 }
