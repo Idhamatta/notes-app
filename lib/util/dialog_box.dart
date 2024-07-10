@@ -25,9 +25,29 @@ class DialogBox extends StatelessWidget {
             TextField(
               controller: controller,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Add a new task',
-                  hintStyle: TextStyle(color: Colors.white)),
+                border: OutlineInputBorder(
+                  borderRadius:
+                      BorderRadius.circular(10.0), // Mengatur radius border
+                  borderSide: BorderSide(
+                    color: Colors.white, // Warna border saat field tidak aktif
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.white, // Warna border saat field tidak aktif
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Color(0xFF147c71), // Warna border saat field aktif
+                    width: 2.0, // Ketebalan border saat field aktif
+                  ),
+                ),
+                hintText: 'Add a new task',
+                hintStyle: TextStyle(color: Colors.white),
+              ),
               style: TextStyle(color: Colors.white, fontSize: 17),
             ),
 
