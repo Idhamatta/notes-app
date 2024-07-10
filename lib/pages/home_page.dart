@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:notes_app/util/dialog_box.dart';
 import 'package:notes_app/util/todo_tile.dart';
 
@@ -10,11 +11,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // reference hive box
+  final _myBox = Hive.openBox('MyBox');
+
   // text controller
   final _controller = TextEditingController();
 
   List toDoList = [
-    ["Play Football", false],
+    ["Add your task", false],
     ["Coding", false],
   ];
   // ketika checkBox di klik oleh user
@@ -45,6 +49,13 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
+  // delete task
+  void deleteTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +84,7 @@ class _HomePageState extends State<HomePage> {
             taskName: toDoList[index][0],
             taskCompleted: toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            deleteFunction: (context) => deleteTask(index),
           );
         },
       ),
