@@ -3,7 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/pages/home_page.dart';
 import 'package:notes_app/util/todo_tile.dart';
 
-Future<void> main(List<String> args) async {
+void main(List<String> args) async {
   // init the hive
   await Hive.initFlutter();
 
